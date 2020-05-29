@@ -1,0 +1,12 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "testing-sam-deploy2"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-qa6mgaxm797c"
+s3_prefix = "testing-sam-deploy1"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_NAMED_IAM"
+parameter_overrides = "ProjectId=lts CodeDeployRole=AWSCodeDeployRoleForLambda Stage=testing Application=zunge"
+

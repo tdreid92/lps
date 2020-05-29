@@ -1,0 +1,23 @@
+{
+  "name": "express-proxycontroller",
+  "version": "1.0.0",
+  "description": "Welcome to the AWS CodeStar sample web service ==============================================",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "aws-serverless-express": "^3.3.8",
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/LingueeTranslationService"
+  },
+  "author": "",
+  "license": "ISC"
+}

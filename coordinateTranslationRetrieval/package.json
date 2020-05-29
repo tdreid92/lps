@@ -1,0 +1,19 @@
+{
+  "name": "coordinatetranslationretrieval",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests/unit/"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "lambda-tester": "^4.0.1",
+    "mocha": "^6.1.4"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  lpscoordinateTranslationRetrieval:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      FunctionName: lps-coordinateTranslationRetrieval
+      Description: ''
+      Handler: index.handler
+      MemorySize: 128
+      Role: 'arn:aws:iam::416497755919:role/LPS-CoordinateTranslationRetrieval'
+      Runtime: nodejs12.x
+      Timeout: 7
+
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  coordinateTranslationRetrieval:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: coordinateTranslationRetrieval/index.handler
+      Runtime: nodejs12.x
+      Description: ''
+      MemorySize: 128
+      Timeout: 15
+      Role: 'arn:aws:iam::416497755919:role/CodeStar-lts-Execution'
+
+
+      lambdatestharness:
+        Type: AWS::Serverless::Application
+        Properties:
+          Location:
+            ApplicationId: arn:aws:serverlessrepo:us-east-1:077246666028:applications/lambda-test-harness
+            SemanticVersion: 1.0.3
+          Parameters:
+            FunctionNameParameter: YOUR_VALUE
+            TableNameParameter: YOUR_VALUE
