@@ -1,6 +1,5 @@
 node_modules/
 *.aws-sam/build
-.*
+.application.json
 *.iml
-
 /.aws-sam/
