@@ -1,0 +1,28 @@
+{
+  "name": "lps",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdreid92/lps.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tdreid92/lps/issues"
+  },
+  "homepage": "https://github.com/tdreid92/lps#readme",
+  "dependencies": {
+    "aws-sdk": "^2.686.0",
+    "chai": "^4.2.0",
+    "lambda-tester": "^4.0.1",
+    "mocha": "^6.1.4",
+    "pino-pretty": "^4.0.0",
+    "lambda-event-mock": "^1.5.0"
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
+  }
+}

@@ -35,7 +35,7 @@ Resources:
       Runtime: nodejs12.x
       Environment:
         Variables:
-          NODE_ENV: !Sub '${Stage}'
+          ENV: !Sub '${Stage}'
       Role:
         Fn::GetAtt:
         - LambdaInvocationRole
@@ -48,6 +48,22 @@ Resources:
             Method: get
       Timeout: 3
       CodeUri: ./lts
+  FindDbTranslation:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      FunctionName: !Sub '${Application}-${ProjectId}-FindDbTranslation-${Stage}'
+      Handler: index.handler
+      Runtime: nodejs12.x
+      Environment:
+        Variables:
+          ENV: !Sub '${Stage}'
+      CodeUri: ./findDbTranslation
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::416497755919:role/LPS-GetTranslationInDb'
+      Tags:
+        Project: LPS
   CoordinateTranslationRetrieval:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -94,10 +110,11 @@ Resources:
   ExpressLayer:
     Type: AWS::Serverless::LayerVersion 
     Properties:
-      LayerName: ExpressLayer
-      ContentUri: 's3://zunge-layers/express-layer.zip'
+      LayerName: common-dependencies
+      Description: Common dependencies
+      ContentUri: layers/common/
       CompatibleRuntimes:
-          - nodejs12.x
+        - nodejs12.x
       LicenseInfo: 'Available under the MIT-0 license.'
       RetentionPolicy: Retain
 
