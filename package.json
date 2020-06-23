@@ -1,28 +1,38 @@
 {
-  "name": "lps",
+  "name": "linguee-proxy-service",
   "version": "1.0.0",
+  "description": "Some stuff",
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.56",
+    "@types/node": "^12.0.2",
+    "@types/uuid": "^3.4.4",
+    "aws-sdk": "^2.701.0",
+    "aws-sdk-mock": "^4.4.0",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "@serverless/event-mocks": "^1.1.1",
+    "@types/lambda-tester": "^3.6.0",
+    "lambda-tester": "^4.0.1",
+    "@types/jest": "^24.0.13",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^6.0.2",
+    "tslint": "^5.17.0",
+    "typescript": "^3.9.5",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "watch": "NODE_ENV=dev webpack --watch --mode=development",
+    "build": "NODE_ENV=prod webpack --mode=production",
+    "lint": "tslint --project tsconfig.json"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tdreid92/lps.git"
-  },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/tdreid92/lps/issues"
   },
   "homepage": "https://github.com/tdreid92/lps#readme",
-  "dependencies": {
-    "aws-sdk": "^2.686.0",
-    "chai": "^4.2.0",
-    "lambda-tester": "^4.0.1",
-    "mocha": "^6.1.4",
-    "pino-pretty": "^4.0.0",
-    "lambda-event-mock": "^1.5.0"
-  },
-  "devDependencies": {
-    "prettier": "2.0.5"
-  }
+  "author": "Tyler Reid",
+  "license": "MIT"
 }

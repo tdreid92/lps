@@ -3,3 +3,4 @@ node_modules/
 .application.json
 *.iml
 /.aws-sam/
+dist/

@@ -37,3 +37,24 @@ Resources:
           Parameters:
             FunctionNameParameter: YOUR_VALUE
             TableNameParameter: YOUR_VALUE
+
+
+    LingueeLayer:
+      Type: AWS::Serverless::LayerVersion
+      Properties:
+        LayerName: LingueeLayer
+        ContentUri: 's3://zunge-layers/linguee-layer-custom.zip'
+        CompatibleRuntimes:
+          - nodejs12.x
+        LicenseInfo: 'Available under the MIT-0 license.'
+        RetentionPolicy: Retain
+    ExpressLayer:
+      Type: AWS::Serverless::LayerVersion
+      Properties:
+        LayerName: common-dependencies
+        Description: Common dependencies
+        ContentUri: layers/common/
+        CompatibleRuntimes:
+          - nodejs12.x
+        LicenseInfo: 'Available under the MIT-0 license.'
+        RetentionPolicy: Retain

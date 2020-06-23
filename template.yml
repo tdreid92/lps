@@ -47,9 +47,9 @@ Resources:
             Path: /translation/{src}/{dst}/{query}
             Method: get
       Timeout: 3
-      CodeUri: ./lts
+      CodeUri: ./lambdas/linguee-proxy-controller
   FindDbTranslation:
-    Type: 'AWS::Serverless::Function'
+    Type: AWS::Serverless::Function
     Properties:
       FunctionName: !Sub '${Application}-${ProjectId}-FindDbTranslation-${Stage}'
       Handler: index.handler
@@ -57,29 +57,13 @@ Resources:
       Environment:
         Variables:
           ENV: !Sub '${Stage}'
-      CodeUri: ./findDbTranslation
+      CodeUri: ./lambdas/find-db-translation
       Description: ''
       MemorySize: 128
       Timeout: 3
       Role: 'arn:aws:iam::416497755919:role/LPS-GetTranslationInDb'
       Tags:
         Project: LPS
-  CoordinateTranslationRetrieval:
-    Type: 'AWS::Serverless::Function'
-    Properties:
-      FunctionName: !Sub '${Application}-${ProjectId}-CoordinateTranslationRetrieval-${Stage}'
-      Description: ''
-      Handler: index.handler
-      Environment:
-        Variables:
-          NODE_ENV: !Sub '${Stage}'
-      Role:
-        Fn::GetAtt:
-        - LambdaInvocationRole
-        - Arn
-      Runtime: nodejs12.x
-      CodeUri: ./coordinateTranslationRetrieval
-      Timeout: 3
   LambdaInvocationRole:
     Description: Invoke Lambdas
     Type: AWS::IAM::Role
@@ -98,25 +82,6 @@ Resources:
       ManagedPolicyArns:
         - !Sub 'arn:${AWS::Partition}:iam::aws:policy/service-role/lts -'
       PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/CodeStar_${ProjectId}_PermissionsBoundary'
-  LingueeLayer:
-    Type: AWS::Serverless::LayerVersion 
-    Properties:
-      LayerName: LingueeLayer
-      ContentUri: 's3://zunge-layers/linguee-layer-custom.zip'
-      CompatibleRuntimes:
-          - nodejs12.x
-      LicenseInfo: 'Available under the MIT-0 license.'
-      RetentionPolicy: Retain
-  ExpressLayer:
-    Type: AWS::Serverless::LayerVersion 
-    Properties:
-      LayerName: common-dependencies
-      Description: Common dependencies
-      ContentUri: layers/common/
-      CompatibleRuntimes:
-        - nodejs12.x
-      LicenseInfo: 'Available under the MIT-0 license.'
-      RetentionPolicy: Retain
 
 
 
