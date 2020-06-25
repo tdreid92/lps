@@ -17,5 +17,9 @@
     "esModuleInterop": true,
     "inlineSourceMap": true,
     "resolveJsonModule": true
+  },
+  "allowJs": true,
+  "jsRules": {
+    "no-empty": true
   }
 }

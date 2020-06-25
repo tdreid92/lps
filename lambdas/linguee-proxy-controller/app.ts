@@ -13,7 +13,7 @@ app.get(
     const word = req.params.word.toLowerCase();
     const src = req.params.src.toLowerCase();
     const dst = req.params.dst.toLowerCase();
-    // console.log(`Commence translation of ${word} from ${src} to ${dst}.`);
+    console.log(`Commence translation of ${word} from ${src} to ${dst}.`);
     const translationResponse = await getTranslation(src, dst, word);
     res.send(translationResponse);
   }

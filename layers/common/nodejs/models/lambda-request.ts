@@ -7,8 +7,8 @@ export default class LambdaRequest {
   public LogType: string;
 
   constructor() {
-    this.FunctionName = null;
-    this.Payload = null;
+    this.FunctionName = ""
+    this.Payload = ""
     this.InvocationType = "RequestResponse";
     this.LogType = "Tail";
   }

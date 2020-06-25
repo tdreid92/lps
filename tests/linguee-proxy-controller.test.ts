@@ -1,24 +1,16 @@
 import LambdaTester from "lambda-tester";
 
 const myHandler = require("../lambdas/linguee-proxy-controller").handler;
-const LambdaRequest = require("../layers/common/nodejs/models/lambda-request");
-const LambdaResponse = require("../layers/common/nodejs/models/lambda-response");
-const expect = require("chai").expect;
-const createEvent = require("aws-event-mocks");
+import LambdaRequest from "../layers/common/nodejs/models/lambda-request";
+import LambdaResponse from "../layers/common/nodejs/models/lambda-response";
+import data from './events/apigateway.json';
+const expect = require("chai");
 
 describe("handler", function () {
   it("test success", async function () {
-    const event = createEvent({
-      template: "aws:apiGateway",
-      merge: {
-        body: {
-          first_name: "Sam",
-          last_name: "Smith",
-        },
-      },
-    });
+      const eventMocked = (<any>data).name;
     await LambdaTester(myHandler)
-      .event(event)
+      .event(eventMocked)
       .expectResult((result: any) => {
         console.log(result);
         const expected = new LambdaResponse(result);

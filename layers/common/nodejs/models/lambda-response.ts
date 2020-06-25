@@ -1,11 +1,11 @@
 "use strict";
 
 export default class LambdaResponse {
-  private statusCode: number;
-  private payload: string;
+  private statusCode: number | undefined;
+  private payload: string | undefined;
   constructor(options = {}) {
-    this.statusCode = null;
-    this.payload = null;
+    this.statusCode = 666;
+    this.payload = "yo";
     Object.assign(this, options);
   }
 
