@@ -1,6 +1,6 @@
 {
   "include": [
-    "lambdas/**/*", "layers/**/*"
+    "src/**/*", "layers/**/*"
   ],
   "compilerOptions": {
     "target": "es2017",
