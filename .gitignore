@@ -5,3 +5,6 @@ node_modules/
 /.aws-sam/
 dist/
 /.vscode/launch.json
+/layers/**/*.js
+/src/**/*.js
+/tests/**/*.js

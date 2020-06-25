@@ -1,101 +1,86 @@
 {
-  "resource": "/",
-  "path": "/",
   "httpMethod": "GET",
-  "headers": {
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "accept-encoding": "gzip, deflate, br",
-    "accept-language": "en-US,en;q=0.9",
-    "cookie": "s_fid=7AAB6XMPLAFD9BBF-0643XMPL09956DE2; regStatus=pre-register",
-    "Host": "70ixmpl4fl.execute-api.us-east-2.amazonaws.com",
-    "sec-fetch-dest": "document",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-site": "none",
-    "upgrade-insecure-requests": "1",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36",
-    "X-Amzn-Trace-Id": "Root=1-5e66d96f-7491f09xmpl79d18acf3d050",
-    "X-Forwarded-For": "52.255.255.12",
-    "X-Forwarded-Port": "443",
-    "X-Forwarded-Proto": "https"
-  },
-  "multiValueHeaders": {
-    "accept": [
-      "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
-    ],
-    "accept-encoding": [
-      "gzip, deflate, br"
-    ],
-    "accept-language": [
-      "en-US,en;q=0.9"
-    ],
-    "cookie": [
-      "s_fid=7AABXMPL1AFD9BBF-0643XMPL09956DE2; regStatus=pre-register;"
-    ],
-    "Host": [
-      "70ixmpl4fl.execute-api.ca-central-1.amazonaws.com"
-    ],
-    "sec-fetch-dest": [
-      "document"
-    ],
-    "sec-fetch-mode": [
-      "navigate"
-    ],
-    "sec-fetch-site": [
-      "none"
-    ],
-    "upgrade-insecure-requests": [
-      "1"
-    ],
-    "User-Agent": [
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"
-    ],
-    "X-Amzn-Trace-Id": [
-      "Root=1-5e66d96f-7491f09xmpl79d18acf3d050"
-    ],
-    "X-Forwarded-For": [
-      "52.255.255.12"
-    ],
-    "X-Forwarded-Port": [
-      "443"
-    ],
-    "X-Forwarded-Proto": [
-      "https"
-    ]
+  "body": null,
+  "resource": "/translation/{src}/{dst}/{query}",
+  "requestContext": {
+    "resourceId": "123456",
+    "apiId": "1234567890",
+    "resourcePath": "/translation/{src}/{dst}/{query}",
+    "httpMethod": "GET",
+    "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
+    "accountId": "123456789012",
+    "stage": "Prod",
+    "identity": {
+      "apiKey": null,
+      "userArn": null,
+      "cognitoAuthenticationType": null,
+      "caller": null,
+      "userAgent": "Custom User Agent String",
+      "user": null,
+      "cognitoIdentityPoolId": null,
+      "cognitoAuthenticationProvider": null,
+      "sourceIp": "127.0.0.1",
+      "accountId": null
+    },
+    "extendedRequestId": null,
+    "path": "/translation/{src}/{dst}/{query}"
   },
   "queryStringParameters": null,
   "multiValueQueryStringParameters": null,
-  "pathParameters": null,
-  "stageVariables": null,
-  "requestContext": {
-    "resourceId": "2gxmpl",
-    "resourcePath": "/",
-    "httpMethod": "GET",
-    "extendedRequestId": "JJbxmplHYosFVYQ=",
-    "requestTime": "10/Mar/2020:00:03:59 +0000",
-    "path": "/Prod/",
-    "accountId": "123456789012",
-    "protocol": "HTTP/1.1",
-    "stage": "Prod",
-    "domainPrefix": "70ixmpl4fl",
-    "requestTimeEpoch": 1583798639428,
-    "requestId": "77375676-xmpl-4b79-853a-f982474efe18",
-    "identity": {
-      "cognitoIdentityPoolId": null,
-      "accountId": null,
-      "cognitoIdentityId": null,
-      "caller": null,
-      "sourceIp": "52.255.255.12",
-      "principalOrgId": null,
-      "accessKey": null,
-      "cognitoAuthenticationType": null,
-      "cognitoAuthenticationProvider": null,
-      "userArn": null,
-      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36",
-      "user": null
-    },
-    "domainName": "70ixmpl4fl.execute-api.us-east-2.amazonaws.com",
-    "apiId": "70ixmpl4fl"
+  "headers": {
+    "Host": "127.0.0.1:3001",
+    "X-Amz-Date": "20200625T042240Z",
+    "Authorization": "AWS4-HMAC-SHA256 Credential=AKIAWB6JTM4H6NFPPGSL/20200625/us-east-1/execute-api/aws4_request, SignedHeaders=host;x-amz-date, Signature=7ef6500814818e50cb136e9a7fd3b1afe65d52970f4b0fa9255c77746c16a382",
+    "User-Agent": "PostmanRuntime/7.25.0",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "baa7458c-1001-4a80-a23b-9592eabd7a77",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "X-Forwarded-Proto": "http",
+    "X-Forwarded-Port": "3001"
   },
-  "body": null,
+  "multiValueHeaders": {
+    "Host": [
+      "127.0.0.1:3001"
+    ],
+    "X-Amz-Date": [
+      "20200625T042240Z"
+    ],
+    "Authorization": [
+      "AWS4-HMAC-SHA256 Credential=AKIAWB6JTM4H6NFPPGSL/20200625/us-east-1/execute-api/aws4_request, SignedHeaders=host;x-amz-date, Signature=7ef6500814818e50cb136e9a7fd3b1afe65d52970f4b0fa9255c77746c16a382"
+    ],
+    "User-Agent": [
+      "PostmanRuntime/7.25.0"
+    ],
+    "Accept": [
+      "*/*"
+    ],
+    "Cache-Control": [
+      "no-cache"
+    ],
+    "Postman-Token": [
+      "baa7458c-1001-4a80-a23b-9592eabd7a77"
+    ],
+    "Accept-Encoding": [
+      "gzip, deflate, br"
+    ],
+    "Connection": [
+      "keep-alive"
+    ],
+    "X-Forwarded-Proto": [
+      "http"
+    ],
+    "X-Forwarded-Port": [
+      "3001"
+    ]
+  },
+  "pathParameters": {
+    "src": "en",
+    "dst": "de",
+    "query": "word"
+  },
+  "stageVariables": null,
+  "path": "/translation/en/de/word",
   "isBase64Encoded": false
 }

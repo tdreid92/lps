@@ -47,7 +47,7 @@ Resources:
             Path: /translation/{src}/{dst}/{query}
             Method: get
       Timeout: 3
-      CodeUri: ./build/linguee-proxy-controller
+      CodeUri: ./src/linguee-proxy-controller
   FindDbTranslation:
     Type: AWS::Serverless::Function
     Properties:
@@ -57,13 +57,13 @@ Resources:
       Environment:
         Variables:
           ENV: !Sub '${Stage}'
-      CodeUri: ./build/find-db-translation
       Description: ''
       MemorySize: 128
       Timeout: 3
       Role: 'arn:aws:iam::416497755919:role/LPS-GetTranslationInDb'
       Tags:
         Project: LPS
+      CodeUri: ./src/find-db-translation
   LambdaInvocationRole:
     Description: Invoke Lambdas
     Type: AWS::IAM::Role
