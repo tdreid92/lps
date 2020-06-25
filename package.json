@@ -37,7 +37,7 @@
     "watch": "NODE_ENV=dev webpack --watch --mode=development",
     "build": "NODE_ENV=prod webpack --mode=production",
     "sam-build": "NODE_ENV=prod webpack --mode=production && sam build",
-    "lint": "eslint --fix-type Array"
+    "lint": "eslint src/* layers/* --ext .ts"
   },
   "bugs": {
     "url": "https://github.com/tdreid92/lps/issues"
