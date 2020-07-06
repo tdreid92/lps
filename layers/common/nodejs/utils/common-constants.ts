@@ -1,11 +1,17 @@
-// export const FunctionNames = {
-//   LINGUEE_PROXY_CONTROLLER: 'LingueeProxyController',
-//   FIND_DB_TRANSLATION: 'FindDbTranslation'
-// };
+export const enum FunctionNamespace {
+  LINGUEE_PROXY_CONTROLLER = 'LingueeProxyController',
+  FIND_DB_TRANSLATION = 'FindDbTranslation'
+}
 
-export enum FunctionName {
-  'LingueeProxyController',
-  'FindDbTranslation'
+export const enum InvocationType {
+  RequestResponse = 'RequestResponse',
+  EVENT = 'Event',
+  DRYRUN = 'DryRun'
+}
+
+export enum LogType {
+  NONE = 'None',
+  TAIL = 'Tail'
 }
 
 export const DynamoDbTables = Object.freeze({

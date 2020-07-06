@@ -8,8 +8,6 @@ const expect = require('chai');
 
 describe('handler', function () {
   it('test success', async function () {
-    // process.env.REGION = 'us-east-1';
-    // process.env.STAGE = 'dev';
     const eventMocked = <any>data;
     await LambdaTester(myHandler)
       .event(eventMocked)

@@ -1,27 +1,6 @@
 import AWS, { Endpoint } from 'aws-sdk';
 import { InvocationRequest, InvocationResponse } from 'aws-sdk/clients/lambda';
-// const awsLambda = new AWS.Lambda({
-//   region: 'us-east-1',
-//   endpoint: 'http://host.docker.internal:3001'
-// });
-
-export const enum FunctionNamespace {
-  LingueeProxyController = 'LingueeProxyController',
-  FindDbTranslation = 'FindDbTranslation'
-}
-
-// export type FunctionNameType = FunctionName.LingueeProxyController | FunctionName.FindDbTranslation | undefined;
-
-export const enum InvocationType {
-  RequestResponse = 'RequestResponse',
-  Event = 'Event',
-  DryRun = 'DryRun'
-}
-
-export enum LogType {
-  None = 'None',
-  Tail = 'Tail'
-}
+import { FunctionNamespace, LogType, InvocationType } from '../utils/common-constants';
 
 /**
  * Refer to https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html for
@@ -192,7 +171,6 @@ export class LambdaInvoker implements ILambdaInvoker {
   /**
    * LambdaResponse methods
    */
-
   getStatusCode = (): number | undefined => this._response?.getStatusCode();
 
   getExecutedVersion = (): string | undefined => this._response?.getExecutedVersion();
@@ -207,11 +185,9 @@ export class LambdaInvoker implements ILambdaInvoker {
    * LambdaInvoker methods
    */
   async invoke(): Promise<LambdaResponse> {
-    console.log(this._request.toInvocationRequest());
     const invocationResponse: AWS.Lambda.InvocationResponse = await this._awsLambda
       .invoke(this._request.toInvocationRequest())
       .promise();
-    console.log(invocationResponse);
     this._response = new LambdaResponse()
       .setStatusCode(invocationResponse.StatusCode)
       .setExecutedVersion(invocationResponse.ExecutedVersion)

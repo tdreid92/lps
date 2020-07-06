@@ -1,5 +1,5 @@
 import awsServerlessExpress from 'aws-serverless-express';
-import { app } from './app';
+import { app } from './lib/app';
 import { log } from './util/lambda-logger';
 const server = awsServerlessExpress.createServer(app);
 

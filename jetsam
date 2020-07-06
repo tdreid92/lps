@@ -21,7 +21,7 @@ api_log_file=opt/logs/api-log-$TIMESTAMP.txt
 get_lambda_logical_ids() {
   grep -B 1 "Type: AWS::Serverless::Function" $TEMPLATE_PATH | sed '/^--$/d' | while read -r LAMBDA; do
     read -r
-    printf "%s" $LAMBDA | sed s/://g
+    printf "%s" "$LAMBDA" | sed s/://g
   done
 }
 

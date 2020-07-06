@@ -1,11 +1,22 @@
-node_modules/
-*.aws-sam/build
+
+
 .application.json
-*.iml
-/.aws-sam/
+
+# npm libraries
+node_modules/
+
+# typescript artifacts
 /opt/
 dist/
-/.vscode/launch.json
+
+# aws build artifacts
+/.aws-sam/
+
+# functional code
 /layers/**/*.js
 /src/**/*.js
 /tests/**/*.js
+
+# ide configurations
+*.iml
+/.vscode/
