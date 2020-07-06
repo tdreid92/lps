@@ -1,8 +1,8 @@
 'use strict';
 const LambdaTester = require('lambda-tester');
-const myHandler = require('../src/find-db-translation').handler;
-var LambdaRequest = require('../layers/common/nodejs/models/lambda-request');
-var LambdaResponse = require('../layers/common/nodejs/models/lambda-response');
+const myHandler = require('../../src/find-db-translation').handler;
+var LambdaRequest = require('../../layers/common/nodejs/models/lambda');
+var LambdaResponse = require('../../layers/common/nodejs/models/lambda-response');
 var expect = require('chai').expect;
 describe('handler', function () {
   const test1 = new LambdaRequest('XYX', 'stuff', 'RequestResponse');

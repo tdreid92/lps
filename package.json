@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "Some stuff",
   "dependencies": {
+    "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/node": "^12.0.2",
     "@types/uuid": "^3.4.4",
     "aws-sdk": "^2.704.0",
     "aws-sdk-mock": "^4.4.0",
+    "concurrently": "^5.2.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "express": "^4.17.1",
+    "lambda-logger-node": "^3.2.0",
     "source-map-support": "^0.5.19",
     "uuid": "^3.4.0"
   },
@@ -37,9 +41,8 @@
   },
   "scripts": {
     "test": "jest",
-    "watch": "NODE_ENV=dev webpack --watch --mode=development",
-    "build": "NODE_ENV=prod webpack --mode=production",
-    "lint": "eslint src/* layers/* --ext .ts"
+    "lint": "eslint src/* layers/* --ext .ts",
+    "con": " concurrently --kill-others \"sleep 2\" \"sleep 5\"\n"
   },
   "bugs": {
     "url": "https://github.com/tdreid92/lps/issues"

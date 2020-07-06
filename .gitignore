@@ -3,6 +3,7 @@ node_modules/
 .application.json
 *.iml
 /.aws-sam/
+/opt/
 dist/
 /.vscode/launch.json
 /layers/**/*.js

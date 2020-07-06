@@ -1,0 +1,83 @@
+#!/bin/bash
+#
+# output all lambdas names or directories on a template.yml as space separated list
+#
+ROOT_DIR=/Users/C5298722/Documents/sam_git/lps
+TEMPLATE_PATH=${ROOT_DIR}/template.yml
+DEV_ENV_VARS=${ROOT_DIR}/resources/env-vars/development.json
+TEST_ENV_VARS=${ROOT_DIR}/resources/env-vars/test.json
+PROD_ENV_VARS=${ROOT_DIR}/resources/env-vars/production.json
+DEV_PARAMS=${ROOT_DIR}/resources/parameter-overrides/development.txt
+TEST_PARAMS=${ROOT_DIR}/resources/parameter-overrides/test.txt
+PROD_PARAMS=${ROOT_DIR}/resources/parameter-overrides/production.txt
+WEBPACK_PATH=${ROOT_DIR}/node_modules/.bin/webpack
+CONCURRENTLY_PATH=${ROOT_DIR}/node_modules/.bin/concurrently
+LAMBDA_PORT=3001
+API_PORT=3000
+#TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
+lambda_log_file=opt/logs/lambda-log-$TIMESTAMP.txt
+api_log_file=opt/logs/api-log-$TIMESTAMP.txt
+
+get_lambda_logical_ids() {
+  grep -B 1 "Type: AWS::Serverless::Function" $TEMPLATE_PATH | sed '/^--$/d' | while read -r LAMBDA; do
+    read -r
+    printf "%s" $LAMBDA | sed s/://g
+  done
+}
+
+start_dev_mode() {
+ ${CONCURRENTLY_PATH} --kill-others \
+  "jetsam lsa -l $api_log_file" \
+  "jetsam lsl -l $lambda_log_file" \
+  "tail -f $lambda_log_file" \
+  "tail -f $api_log_file"
+}
+
+sam_local() {
+  SAM_CMD=$1
+  log=$2
+  trap no_ctrlc SIGINT
+
+  if [ "$SAM_CMD" == "start-api" ]; then
+    (sam local start-api -p "${API_PORT}" && get_dev_vars) 2> $api_log_file
+  elif [ "$SAM_CMD" == "start-lambda" ]; then
+    # shellcheck disable=SC2086
+    (sam local start-lambda -p "${LAMBDA_PORT}" && get_dev_vars) 2> $lambda_log_file
+  else
+    echo "Command $SAM_CMD unsupported"
+    exit
+  fi
+}
+
+no_ctrlc() {
+  pkill -P $$
+}
+
+get_dev_vars() {
+  printf "--parameter-overrides '%s' --env-vars %s" "$(awk 'BEGIN { ORS="" } { print p""$0""; p=", " } END { print "\n" }' ${DEV_PARAMS})" ${DEV_ENV_VARS}
+}
+
+format_parameters() {
+  file=$1
+  awk 'BEGIN { ORS="" } { print p""$0""; p=", " } END { print "\n" }' "$file"
+}
+
+sam_build() {
+  NODE_ENV=prod ${WEBPACK_PATH} --mode=production
+}
+
+sam_watch() {
+  NODE_ENV=dev ${WEBPACK_PATH} --watch --mode=development
+}
+
+CMD="$1"
+
+case $CMD in
+lsa ) sam_local "start-api" $2 ;;
+lsl ) sam_local "start-lambda" $2 ;;
+start-dev ) start_dev_mode ;;
+b | build) sam_build ;;
+w | watch) sam_watch ;;
+lambdas) get_lambda_logical_ids "$@" ;;
+*) show_help ;;
+esac

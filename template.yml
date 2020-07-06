@@ -35,7 +35,7 @@ Resources:
       Runtime: nodejs12.x
       Environment:
         Variables:
-          ENV: !Sub '${Stage}'
+          NODE_ENV: !Sub '${Stage}'
       Role:
         Fn::GetAtt:
         - LambdaInvocationRole
@@ -56,11 +56,14 @@ Resources:
       Runtime: nodejs12.x
       Environment:
         Variables:
-          ENV: !Sub '${Stage}'
+          NODE_ENV: !Sub '${Stage}'
       Description: ''
       MemorySize: 128
       Timeout: 3
-      Role: 'arn:aws:iam::416497755919:role/LPS-GetTranslationInDb'
+      Role:
+        Fn::GetAtt:
+          - LambdaInvocationRole
+          - Arn
       Tags:
         Project: LPS
       CodeUri: ./src/find-db-translation

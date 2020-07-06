@@ -1,21 +1,13 @@
 {
   "name": "lts-controller",
-  "version": "1.0.0",
-  "description": "Welcome to the AWS CodeStar sample web service ==============================================",
-  "directories": {
-    "test": "../../tests"
-  },
+  "version": "0.0.1",
+  "description": "Controller to handle incoming translation requests",
   "repository": {
     "type": "git",
     "url": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/LingueeTranslationService"
   },
   "author": "",
-  "license": "ISC",
-  "scripts": {
-    "test": "node_modules/.bin/mocha ../../tests/unit/",
-    "build": "node_modules/.bin/tsc",
-    "deploy": "npm run build && sls deploy"
-  },
+  "license": "",
   "devDependencies": {
     "ts-node": "^8.10.2"
   },
@@ -23,10 +15,14 @@
     "@types/aws-lambda": "^8.10.56",
     "@types/aws-serverless-express": "^3.3.3",
     "@types/express": "^4.17.6",
+    "@types/lambda-log": "^2.2.0",
     "@types/node": "^14.0.13",
     "aws-event-mocks": "0.0.0",
     "aws-serverless-express": "^3.3.8",
     "express": "^4.17.1",
+    "lambda-log": "^2.4.0",
+    "lambda-logger-node": "^3.2.0",
+    "ts-json-object": "^0.2.9",
     "typescript": "^3.9.5"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "LingueeProxyController": {
+    "SIMULATE_AWS_ENDPOINT": "true",
+    "SIMULATED_AWS_ENDPOINT": "http://host.docker.internal:3001"
+  },
+  "FindDbTranslation": {
+    "SIMULATE_AWS_ENDPOINT": "true",
+    "SIMULATED_AWS_ENDPOINT": "http://host.docker.internal:3001"
+  }
+}

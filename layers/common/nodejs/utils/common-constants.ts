@@ -1,7 +1,12 @@
-export const FunctionNames = {
-  LINGUEE_PROXY_CONTROLLER: "LingueeProxyController",
-  FIND_DB_TRANSLATION: "FindDbTranslation",
-};
+// export const FunctionNames = {
+//   LINGUEE_PROXY_CONTROLLER: 'LingueeProxyController',
+//   FIND_DB_TRANSLATION: 'FindDbTranslation'
+// };
+
+export enum FunctionName {
+  'LingueeProxyController',
+  'FindDbTranslation'
+}
 
 export const DynamoDbTables = Object.freeze({
   PROD: 1,
@@ -10,25 +15,25 @@ export const DynamoDbTables = Object.freeze({
   null: 3,
   properties: Object.freeze({
     1: Object.freeze({
-      TRANSLATIONS: "Translations_Prod",
-      DEFINITIONS: "Definitions_Prod",
-      USERS: "Users_Prod",
-      TAGS: "Tags_Prod",
-      FLASHCARDS: "Flashcards_Prod",
+      TRANSLATIONS: 'Translations_Prod',
+      DEFINITIONS: 'Definitions_Prod',
+      USERS: 'Users_Prod',
+      TAGS: 'Tags_Prod',
+      FLASHCARDS: 'Flashcards_Prod'
     }),
     2: Object.freeze({
-      TRANSLATIONS: "Translations_Test",
-      DEFINITIONS: "Definitions_Test",
-      USERS: "Users_Test",
-      TAGS: "Tags_Test",
-      FLASHCARDS: "Flashcards_Test",
+      TRANSLATIONS: 'Translations_Test',
+      DEFINITIONS: 'Definitions_Test',
+      USERS: 'Users_Test',
+      TAGS: 'Tags_Test',
+      FLASHCARDS: 'Flashcards_Test'
     }),
     3: Object.freeze({
-      TRANSLATIONS: "Translations_Dev",
-      DEFINITIONS: "Definitions_Dev",
-      USERS: "Users_Dev",
-      TAGS: "Tags_Dev",
-      FLASHCARDS: "Flashcards_Dev",
-    }),
-  }),
+      TRANSLATIONS: 'Translations_Dev',
+      DEFINITIONS: 'Definitions_Dev',
+      USERS: 'Users_Dev',
+      TAGS: 'Tags_Dev',
+      FLASHCARDS: 'Flashcards_Dev'
+    })
+  })
 });

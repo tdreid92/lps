@@ -54,8 +54,10 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 //   return isEmpty(translations[0]) ? translations[1] : translations[0];
 // };
 
-exports.handler = async (event: any) => {
-  console.log(event);
+exports.handler = async (event: {
+  translationKey: string;
+  reversedTranslationKey: string;
+}) => {
   // const translation = await resolveTranslations(
   //   event.translationKey,
   //   event.reversedTranslationKey
@@ -72,10 +74,10 @@ exports.handler = async (event: any) => {
   //   DEFINITIONS_TABLE,
   //   translation.Item.definitionKeys
   // );
-  // return {
-  //   // StatusCode: 200,
-  //   // Payload: definitions.Responses.Definitions.map((d: any) =>
-  //   //   AWS.DynamoDB.Converter.unmarshall(d)
-  //   // ).sort((a: { index: number; }, b: { index: number; }) => a.index - b.index),
-  // };
+  return {
+    // StatusCode: 200,
+    // Payload: definitions.Responses.Definitions.map((d: any) =>
+    //   AWS.DynamoDB.Converter.unmarshall(d)
+    // ).sort((a: { index: number; }, b: { index: number; }) => a.index - b.index),
+  };
 };

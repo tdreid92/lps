@@ -2,12 +2,6 @@
   "name": "finddbtranslation",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
-  "scripts": {
-    "test": "node_modules/.bin/mocha test/unit/",
-    "build": "tsc",
-    "deploy": "npm run build && sls deploy"
-  },
   "devDependencies": {
     "chai": "^4.2.0",
     "lambda-tester": "^4.0.1",
