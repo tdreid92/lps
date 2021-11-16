@@ -5,6 +5,6 @@
   "license": "ISC",
   "dependencies": {
     "@types/aws-sdk": "^2.7.0",
-    "aws-sdk": "^2.709.0"
+    "aws-sdk": "^2.814.0"
   }
 }
