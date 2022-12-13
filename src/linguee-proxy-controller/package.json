@@ -19,7 +19,7 @@
     "@types/node": "^14.0.13",
     "aws-event-mocks": "0.0.0",
     "aws-serverless-express": "^3.3.8",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "lambda-log": "^2.4.0",
     "lambda-logger-node": "^3.2.0",
     "ts-json-object": "^0.2.9",
